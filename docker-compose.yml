@@ -2,7 +2,7 @@ version: '3.8'
 
 services: 
   occv:
-    image: ghcr.io/merlinschumacher/open-covid-certificate-validator:main
+    image: ghcr.io/av_jui/open-covid-certificate-validator:main
     volumes: 
       - ./data:/code/data
       - /etc/localtime:/etc/localtime:ro
@@ -10,5 +10,5 @@ services:
       - TZ=Europe/Berlin
       - CERT_COUNTRY=DE
     ports: 
-      - "8000:8000"
+      - "8181:8000"
     container_name: "occv" 

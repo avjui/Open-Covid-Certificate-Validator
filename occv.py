@@ -107,26 +107,25 @@ folder = 'web/dist/'
 app.mount("/static/", StaticFiles(directory=folder), name="static")
 
 
-@app.get("/", response_class=FileResponse, include_in_schema=False)
-def read_index(request: Request):
-    path = folder + 'index.html'
-    return FileResponse(path)
+#@app.get("/", response_class=FileResponse, include_in_schema=False)
+#def read_index(request: Request):
+#    path = folder + 'index.html'
+#    return FileResponse(path)
 
 
-@app.get("/{catchall:path}", response_class=FileResponse,
-         include_in_schema=False)
-def read_index(request: Request):
-    # check first if requested file exists
-    path = request.path_params["catchall"]
-    file = folder+path
+#@app.get("/{catchall:path}", response_class=FileResponse,
+#         include_in_schema=False)
+#def read_index(request: Request):
+#    # check first if requested file exists
+#    path = request.path_params["catchall"]
+#    file = folder+path
 
-    print('look for: ', path, file)
-    if os.path.exists(file):
-        return FileResponse(file)
+#    print('look for: ', path, file)
+#    if os.path.exists(file):
+#        return FileResponse(file)
 
-    # otherwise return index files
-    index = folder + 'index.html'
-    return FileResponse(index)
+#    # otherwise return index files
+#    index = folder + 'index.html'
 
 
 @app.post("/", response_model=DCCData)
