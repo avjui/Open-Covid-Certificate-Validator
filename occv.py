@@ -105,7 +105,7 @@ class DCCData(BaseModel):
 
 folder = 'web/dist/'
 app.mount("/static/", StaticFiles(directory=folder), name="static")
-folderweb = 'web/public'
+folderweb = 'web/public/'
 
 @app.get("/", response_class=FileResponse, include_in_schema=False)
 def read_index(request: Request):
