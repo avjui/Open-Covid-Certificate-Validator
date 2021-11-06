@@ -3,6 +3,7 @@ version: '3.8'
 services: 
   occv:
     image: ghcr.io/av_jui/open-covid-certificate-validator:main
+    build: .
     volumes: 
       - ./data:/code/data
       - /etc/localtime:/etc/localtime:ro
